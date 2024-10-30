@@ -1,0 +1,193 @@
+<!-- views/index.njk -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello World</title>
+  <style>
+
+  </style>
+<style>
+    body {
+        background-color: aqua;
+        font-family: sans-serif;
+        margin: 0;
+    }
+
+    input {
+        /* styles for input not in a label  */
+        border: tomato 2px solid;
+    }
+
+    label {
+        /* styles for label */
+        font-family: system-ui;
+        font-size: 1.25rem;
+
+        input {
+            /* styles for input in a label  */
+            border: blue 2px dashed;
+        }
+    }
+
+    section:not(#home, :target),
+    :root:has(:target) #home {
+        display: none;
+    }
+
+
+    header {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        height: 8rem;
+        width: 100%;
+        background: rgb(134, 198, 122);
+        color: #fff;
+    }
+
+    header h1 {
+        line-height: 4rem;
+        margin: 0 1em;
+    }
+
+    .nav-link {
+        color: black;
+        text-decoration: none;
+    }
+
+    .nav-link.active {
+        color: red;
+        font-weight: bold;
+    }
+
+    .section {
+        height: 100vh;
+        padding: 50px;
+        border: 1px solid #ddd;
+        margin-top: 20px;
+    }
+
+    section {
+        padding: 9rem 1rem 1rem;
+    }
+</style><template id="next-counter-template">
+    <style>
+        button {
+            background-color: rgb(240, 69, 1);
+            color: rgb(26, 2, 69);
+        }
+    </style>
+    <div>
+        Hier wat tekst
+    </div>
+    <button id="mybutton">
+        <slot>1</slot>
+    </button>
+</template>
+
+<script>
+    class NextCounter extends HTMLElement {
+        constructor() {
+            super();
+            let template = document.getElementById("next-counter-template")
+            let shadowRoot = this.attachShadow({ mode: "open" });
+            shadowRoot.appendChild(template.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+            console.log("next-counter has been added to the page.");
+            this.addEventListener("click", function () {
+                let curvalue = parseInt(this.innerText)
+                let newval = curvalue + 1
+                this.innerText = newval
+            })
+        }
+    }
+    customElements.define("next-counter", NextCounter)    
+</script><template id="next-what-template">
+    <style>
+        div {
+            background-color: rgb(240, 69, 1);
+            color: rgb(26, 2, 69);
+        }
+    </style>
+    <div>
+        <p><slot name="bla">Dit is bla</slot></p>
+        <ul>
+            <li><slot name="inlist">Dit is inlist</slot></li>
+        </ul>
+    </div>
+    <img src="images/aap.jpg" alt="aap">
+</template>
+
+<script>
+    class NextWhat extends HTMLElement {
+        constructor() {
+            super();
+            let template = document.getElementById("next-what-template")
+            let shadowRoot = this.attachShadow({ mode: "open" });
+            shadowRoot.appendChild(template.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+            console.log("hellop in connected callback");
+            console.log(`wat hebben we hier ${this.getAttribute("test")}`);
+        }
+
+    }
+    customElements.define("next-what", NextWhat)    
+</script></head>
+
+<body>
+  <header>
+    <nav>
+      <a class=nav-link href="#">home</a>
+      <a class=nav-link href="#bla">bla</a>
+      <a class=nav-link href="#test">test</a>
+      <a class=nav-link href="#test2">test2</a>
+    </nav>
+  </header>
+  <section id="home">
+    <p>Dit is home</p>
+  </section>
+  <section id="bla">
+    <h1>Section Bla</h1>
+    <next-counter>2</next-counter>
+    <next-what>
+      <p slot="bla">Hier stond eerst bla, maar nu niet meer</p>
+      <p slot="inlist">Dit staat in een lijst als he tgoed is.</p>
+    </next-what>
+    <next-what test="hallo">
+      <p slot="bla">Hier stond eerst bla, maar nu niet meer</p>
+      <p slot="inlist">Dit staat in een lijst als he tgoed is.</p>
+    </next-what>
+  </section>
+  <section id="test">
+    <h1>Dit is test</h1>
+    <form>
+      <label for="name">Name:
+        <input type="text" id="name" />
+      </label>
+      <label for="email">email:
+        <input type="text" id="email" />
+      </label>
+    </form>
+  </section>
+  <section id="test2">
+    <h1>Dit is test 2</h1>
+    <form>
+      <label for="name">Name:
+        <input type="text" id="name" />
+      </label>
+      <label for="email">email:
+        <input type="text" id="email" />
+      </label>
+    </form>
+  </section>
+  <script src="js/observer.js"></script>
+</body>
+
+</html>

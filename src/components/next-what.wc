@@ -1,0 +1,33 @@
+<template id="next-what-template">
+    <style>
+        div {
+            background-color: rgb(240, 69, 1);
+            color: rgb(26, 2, 69);
+        }
+    </style>
+    <div>
+        <p><slot name="bla">Dit is bla</slot></p>
+        <ul>
+            <li><slot name="inlist">Dit is inlist</slot></li>
+        </ul>
+    </div>
+    <img src="images/aap.jpg" alt="aap">
+</template>
+
+<script>
+    class NextWhat extends HTMLElement {
+        constructor() {
+            super();
+            let template = document.getElementById("next-what-template")
+            let shadowRoot = this.attachShadow({ mode: "open" });
+            shadowRoot.appendChild(template.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+            console.log("hellop in connected callback");
+            console.log(`wat hebben we hier ${this.getAttribute("test")}`);
+        }
+
+    }
+    customElements.define("next-what", NextWhat)    
+</script>
