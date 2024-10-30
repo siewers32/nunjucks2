@@ -17,25 +17,28 @@
 <body>
   <header>
     <nav>
-      <a class=nav-link href="#">home</a>
-      <a class=nav-link href="#bla">bla</a>
-      <a class=nav-link href="#test">test</a>
-      <a class=nav-link href="#test2">test2</a>
+      <a class="nav-link active" onclick="addClass(this)" href="#">home</a>
+      <a class="nav-link" onclick="addClass(this)" href="#bla">bla</a>
+      <a class="nav-link" onclick="addClass(this)" href="#test">test</a>
+      <a class="nav-link" onclick="addClass(this)" href="#test2">test2</a>
     </nav>
   </header>
+  <section id="output">
+    <h1>Dit is output</h1>
+  </section>
   <section id="home">
     <p>Dit is home</p>
   </section>
   <section id="bla">
     <h1>Section Bla</h1>
     <next-counter>2</next-counter>
-    <next-what>
+    <next-what test="hallo attriebuutje">
       <p slot="bla">Hier stond eerst bla, maar nu niet meer</p>
       <p slot="inlist">Dit staat in een lijst als he tgoed is.</p>
     </next-what>
     <next-what test="hallo">
-      <p slot="bla">Hier stond eerst bla, maar nu niet meer</p>
-      <p slot="inlist">Dit staat in een lijst als he tgoed is.</p>
+      <p slot="bla">Hier staat echt wat anders nu</p>
+      <p slot="inlist">Gut a gut wat is het toch prachtig allemaal</p>
     </next-what>
   </section>
   <section id="test">
@@ -60,7 +63,7 @@
       </label>
     </form>
   </section>
-  <script src="js/observer.js"></script>
+  <script src="js/nav.js"></script>
 </body>
 
 </html>

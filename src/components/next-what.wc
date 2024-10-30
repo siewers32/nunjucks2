@@ -6,9 +6,13 @@
         }
     </style>
     <div>
-        <p><slot name="bla">Dit is bla</slot></p>
+        <p>
+            <slot name="bla">Dit is bla</slot>
+        </p>
         <ul>
-            <li><slot name="inlist">Dit is inlist</slot></li>
+            <li>
+                <slot name="inlist">Dit is inlist</slot>
+            </li>
         </ul>
     </div>
     <img src="images/aap.jpg" alt="aap">
@@ -24,7 +28,6 @@
         }
 
         connectedCallback() {
-            console.log("hellop in connected callback");
             console.log(`wat hebben we hier ${this.getAttribute("test")}`);
         }
 

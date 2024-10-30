@@ -11,12 +11,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const targetId = entry.target.getAttribute("id");
+            console.log(targetId)
             const link = document.querySelector(`.nav-link[href="#${targetId}"]`);
 
             if (entry.isIntersecting) {
                 link.classList.add("active");
             } else {
-                link.classList.remove("active");
+                console.log(entry);
+                console.log(link);
+                (link.classList.contains("active"))?link.classList.remove("active"):false;
             }
         });
     }, observerOptions);

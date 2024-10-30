@@ -21,11 +21,20 @@
         }
     }
 
+    /*
+    section:not(:target, :has(:target)) {
+        display: none;
+    }
+    */
+
+    .nav-link:active {
+        color: peru;
+    }
+
     section:not(#home, :target),
     :root:has(:target) #home {
         display: none;
     }
-
 
     header {
         display: flex;

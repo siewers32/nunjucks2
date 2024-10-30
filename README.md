@@ -1,6 +1,6 @@
 # nunjucks
 
-* Dit project is een test om vanuit externe bestanden webcompnenten te laden. Hiervoor is gebruik gemaakt van Nunjucks (mogelijkheid om html-bestand te 'includen'). 
+* Dit project is een test om vanuit externe bestanden webcomponenten in te laden. Hiervoor is gebruik gemaakt van Nunjucks (mogelijkheid om html-bestand te 'includen'). 
 * Er is zo min mogelijk gebruik gemaakt van externe libraries (keep it simple).
 
 ## Features
