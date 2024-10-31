@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "node copy.js | nunjucks *.tpl -w -p src -o output",
+    "dev": "node copy.js && nunjucks *.tpl -w -p src -o output",
     "cp": "node copy.js"
   },
   "dependencies": {

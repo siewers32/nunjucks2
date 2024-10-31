@@ -54,6 +54,8 @@
         color: peru;
     }
 
+
+
     section:not(#home, :target),
     :root:has(:target) #home {
         display: none;
@@ -93,6 +95,10 @@
 
     section {
         padding: 9rem 1rem 1rem;
+    }
+
+    section:target {
+        background-color: blueviolet;
     }
 </style><template id="next-counter-template">
     <style>
@@ -159,6 +165,10 @@
 
         connectedCallback() {
             console.log(`wat hebben we hier ${this.getAttribute("test")}`);
+            console.log(this.dataset.bla)
+            //console.log(`${this.shadowRoot.querySelector("img").src}`)
+            let image = this.shadowRoot.querySelector("img")
+            image.src = this.getAttribute("bla");
         }
 
     }

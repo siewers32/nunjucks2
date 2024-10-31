@@ -5,15 +5,17 @@ const sourceDirs = ["css", "images", "js"]
 const sourcePath = "src"
 const destinationDir = "output"
 
+console.log("source-folder is: " + sourcePath)
+console.log("destination-folder is: " + destinationDir)
+
 for(i=0;i<sourceDirs.length;i++) {
-    console.log(sourceDirs[i], sourcePath)
+    // console.log(sourceDirs[i], sourcePath)
     copyDir(sourceDirs[i], sourcePath, destinationDir);
 }
 
 function copyDir(sDir, sPath, dPath) {
     const sourceDir = `${sPath}/${sDir}`;
     const destinationDir = `${dPath}/${sDir}`
-    console.log(sourceDir, destinationDir)
     // Controleer of de doelmap bestaat; zo niet, maak hem aan
     if (!fs.existsSync(destinationDir)) {
         fs.mkdirSync(destinationDir, { recursive: true });
@@ -34,7 +36,7 @@ function copyDir(sDir, sPath, dPath) {
                 if (err) {
                     console.error(`Fout bij kopiëren van ${file}: ${err}`);
                 } else {
-                    console.log(`Bestand gekopieerd: ${file}`);
+                    console.log(`Bestand gekopieerd: ${sourceDir}/${file} to ${destinationDir}/${file}`);
                 }
             });
         });

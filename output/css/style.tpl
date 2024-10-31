@@ -31,6 +31,8 @@
         color: peru;
     }
 
+
+
     section:not(#home, :target),
     :root:has(:target) #home {
         display: none;
@@ -70,5 +72,9 @@
 
     section {
         padding: 9rem 1rem 1rem;
+    }
+
+    section:target {
+        background-color: blueviolet;
     }
 </style>

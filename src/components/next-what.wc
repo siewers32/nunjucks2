@@ -29,6 +29,10 @@
 
         connectedCallback() {
             console.log(`wat hebben we hier ${this.getAttribute("test")}`);
+            console.log(this.dataset.bla)
+            //console.log(`${this.shadowRoot.querySelector("img").src}`)
+            let image = this.shadowRoot.querySelector("img")
+            image.src = this.getAttribute("bla");
         }
 
     }

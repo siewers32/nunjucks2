@@ -6,9 +6,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hello World</title>
-  <style>
-
-  </style>
 <style>
     body {
         background-color: aqua;
@@ -41,6 +38,8 @@
     .nav-link:active {
         color: peru;
     }
+
+
 
     section:not(#home, :target),
     :root:has(:target) #home {
@@ -81,6 +80,10 @@
 
     section {
         padding: 9rem 1rem 1rem;
+    }
+
+    section:target {
+        background-color: blueviolet;
     }
 </style><template id="next-counter-template">
     <style>
@@ -147,6 +150,10 @@
 
         connectedCallback() {
             console.log(`wat hebben we hier ${this.getAttribute("test")}`);
+            console.log(this.dataset.bla)
+            //console.log(`${this.shadowRoot.querySelector("img").src}`)
+            let image = this.shadowRoot.querySelector("img")
+            image.src = this.getAttribute("bla");
         }
 
     }
@@ -171,11 +178,11 @@
   <section id="bla">
     <h1>Section Bla</h1>
     <next-counter>2</next-counter>
-    <next-what test="hallo attriebuutje">
+    <next-what test="hallo attriebuutje" bla="images/aap.jpg">
       <p slot="bla">Hier stond eerst bla, maar nu niet meer</p>
       <p slot="inlist">Dit staat in een lijst als he tgoed is.</p>
     </next-what>
-    <next-what test="hallo">
+    <next-what test="hallohatzee" data-test="dit is datatest" bla="images/aap2.jpg">
       <p slot="bla">Hier staat echt wat anders nu</p>
       <p slot="inlist">Gut a gut wat is het toch prachtig allemaal</p>
     </next-what>

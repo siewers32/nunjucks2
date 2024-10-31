@@ -1,13 +1,17 @@
-const navLinks = document.querySelectorAll(".nav-link");
-
-document.addEventListener("DOMContentLoaded", () => {
-  navArr = Array.from(navLinks);
-  const found = navArr.find((el) => el.hash == location.hash);
-  target = found != undefined ? found : navLinks[0];
-  addClass(target);
+window.addEventListener('hashchange', function () {
+// console.log("URL hash changed to " + location.hash)
+addClass(location.hash);
 });
 
-function addClass(target) {
-  navLinks.forEach(link => link.classList.remove("active"));
-  target.classList.add("active");
+document.addEventListener('DOMContentLoaded', function () {
+// console.log("DOM loaded")
+addClass(location.hash);
+})
+
+function addClass(hash) {
+    const navLinks = Array.from(document.querySelectorAll(".nav-link"));
+    const found = navLinks.find((el) => el.hash == hash);
+    const target = found != undefined ? found : navLinks[0];
+    navLinks.forEach(link => link.classList.remove("active"));
+    target.classList.add("active");
 }

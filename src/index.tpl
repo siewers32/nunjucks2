@@ -6,9 +6,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hello World</title>
-  <style>
-
-  </style>
   {% include "css/style.tpl" %}
   {% include "components/next-counter.wc" %}
   {% include "components/next-what.wc" %}
@@ -32,11 +29,11 @@
   <section id="bla">
     <h1>Section Bla</h1>
     <next-counter>2</next-counter>
-    <next-what test="hallo attriebuutje">
+    <next-what test="hallo attriebuutje" bla="images/aap.jpg">
       <p slot="bla">Hier stond eerst bla, maar nu niet meer</p>
       <p slot="inlist">Dit staat in een lijst als he tgoed is.</p>
     </next-what>
-    <next-what test="hallo">
+    <next-what test="hallohatzee" data-test="dit is datatest" bla="images/aap2.jpg">
       <p slot="bla">Hier staat echt wat anders nu</p>
       <p slot="inlist">Gut a gut wat is het toch prachtig allemaal</p>
     </next-what>
